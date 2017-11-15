@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel <?= $name ?></title>
+        <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -38,12 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5 Made By The Code Addicts <?= $name ?></div>
-                @foreach ($tasks as $task)
-
-                <li>{{ $task }}</li>
-
-                @endforeach
+                <div class="title">Laravel 5 Made By The Code Addicts</div>
             </div>
         </div>
     </body>
