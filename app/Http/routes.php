@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/groups', 'GroupsController@index');
+Route::get('/groups/create', 'GroupsController@create');
+Route::get('/groups/delete/{id}', 'GroupsController@delete');
+Route::get('/groups/edit/{id}', 'GroupsController@edit');
