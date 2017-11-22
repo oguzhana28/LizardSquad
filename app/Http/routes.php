@@ -23,3 +23,6 @@ Route::get('/groups', 'GroupsController@index');
 Route::get('/groups/create', 'GroupsController@create');
 Route::get('/groups/delete/{id}', 'GroupsController@delete');
 Route::get('/groups/edit/{id}', 'GroupsController@edit');
+Route::post('/groups/insert', 'GroupsController@insert');
+Route::post('/groups/update/{id}', 'GroupsController@update');
+

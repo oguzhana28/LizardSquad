@@ -9,8 +9,9 @@
 
                 <div class="panel-body">
                     Here are your groups!
-                       
-                      
+                       @if($errors->any())
+                            <h4>{{$errors->first()}}</h4>
+                        @endif
                            <table class="table">
                               <thead class="thead-dark">
                                 <tr>
@@ -22,8 +23,8 @@
                                     <th scope="col">create<a href="/groups/create"> +</th>
                                 </tr>
                               </thead>
-                                @foreach($groups as $group)
                               <tbody>
+                                @foreach($groups as $group)
                                 <tr>
                                   <th scope="row">{{ $group->id }}</th>
                                   <td>{{ $group->name }}</td>
@@ -31,10 +32,9 @@
                                   <td><a href="/groups/edit/{{ $group->id }}">edit</td>
                                   <td><a href="/groups/delete/{{ $group->id }}">delete</td>
                                 </tr>
+                                @endforeach
                               </tbody>
                         </table>
-       
-                        @endforeach
                 </div>
             </div>
         </div>

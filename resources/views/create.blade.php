@@ -9,18 +9,18 @@
 
                 <div class="panel-body">
                     Here can you create new groups!<br>
-                    
-                    
-                    <form class="form-inline">
+
+                    <form class="form-inline" action="/groups/insert" method="post">
+                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon">Group name</div>
-                      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
+                      <input type="text" name="GroupName" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
                       </div>
 
                       <div class="form-check mb-2 mr-sm-2 mb-sm-0">
                         <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox"> favorite
+                          <input class="form-check-input" name="Favorite" type="checkbox"> favorite
                         </label>
                       </div>
 

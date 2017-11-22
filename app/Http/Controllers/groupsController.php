@@ -9,10 +9,13 @@ use App\groups;
 
 class groupsController extends Controller
 {
-
-    public function __construct()
+    
+protected $request;
+    
+    public function __construct(\Illuminate\Http\Request $request)
     {
         $this->middleware('auth');
+         $this->request = $request;
     }
     
         public function index()
@@ -38,10 +41,39 @@ class groupsController extends Controller
         
         return view('create');
     }
-        public function edit()
+        public function insert()
     {  
-        
-        return view('create');
+    
+        $name = $this->request->input('GroupName');
+        $favorite = $this->request->input('Favorite');
+            
+        $data = array('name'=>$name,'favorite'=>$favorite);
+            
+        $inserted = DB::table('groeps')->insert($data);
+
+        if($inserted){
+            return redirect('/groups');
+        }
+    }
+    
+    public function edit($id)
+    {  
+        $groups = DB::table('groeps')->where('id',$id)->first();
+        return view('edit',compact('groups'));
+    }
+    
+        public function update($id)
+    {  
+        $name = $this->request->input('GroupName');
+        $favorite = $this->request->input('Favorite');
+            
+            $data = array('name'=>$name,'favorite'=>$favorite);
+            $updated = DB::table('groeps')->where('id',$id)->update($data);
+            if($updated){
+                return redirect('/groups');
+            }else{
+                return redirect('/groups')->withErrors(['could not update', 'The Message']);;
+            }
     }
 
 }
