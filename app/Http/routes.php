@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
 
-    return view('welcome');
-});
 
 Route::auth();
 
@@ -23,6 +20,7 @@ Route::get('/groups', 'GroupsController@index');
 Route::get('/groups/create', 'GroupsController@create');
 Route::get('/groups/delete/{id}', 'GroupsController@delete');
 Route::get('/groups/edit/{id}', 'GroupsController@edit');
+Route::get('/', 'GroupsController@admin');
 Route::post('/groups/insert', 'GroupsController@insert');
 Route::post('/groups/update/{id}', 'GroupsController@update');
 

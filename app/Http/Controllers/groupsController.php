@@ -38,8 +38,9 @@ protected $request;
     
     public function create()
     {  
-        
-        return view('create');
+        $groups = DB::table('groeps')->get();
+
+        return view('create', compact('groups'));
     }
         public function insert()
     {  
@@ -75,5 +76,10 @@ protected $request;
                 return redirect('/groups')->withErrors(['could not update', 'The Message']);;
             }
     }
+    public function admin()
+    {
+        $groups = DB::table('groeps')->get();
 
+        return view('backend', compact('groups'));
+    }
 }
