@@ -15,6 +15,7 @@
                                 <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Image</th>
+                                    <th scope="col"><a href="/students/create">create</a></th>
                                 </tr>
                               </thead>
                               <tbody>

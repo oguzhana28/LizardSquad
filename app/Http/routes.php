@@ -25,4 +25,5 @@ Route::post('/groups/insert', 'GroupsController@insert');
 Route::post('/groups/update/{id}', 'GroupsController@update');
 
 Route::get('/students', 'StudentsController@index');
+Route::get('/students/create', 'StudentsController@create');
 

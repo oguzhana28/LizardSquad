@@ -14,5 +14,10 @@ class StudentsController extends Controller
     {       
     	$students = Student::getStudents();    
         return view('students', compact('students'));
+    } 
+    
+    public function create()
+    {       
+        return view('createStudents');
     }
 }
