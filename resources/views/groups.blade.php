@@ -7,14 +7,13 @@
                 <div class="panel-heading">Groups</div>
 
                 <div class="panel-body">
-                    Here are your groups!
                        @if($errors->any())
                             <h4>{{$errors->first()}}</h4>
                         @endif
                            <table class="table">
                               <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">number</th>
+                                  <th scope="col">Id</th>
                                   <th scope="col">Name</th>
                                     <th scope="col">Favorite</th>
                                     <th scope="col">edit</th>

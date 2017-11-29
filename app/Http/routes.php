@@ -24,3 +24,5 @@ Route::get('/', 'GroupsController@admin');
 Route::post('/groups/insert', 'GroupsController@insert');
 Route::post('/groups/update/{id}', 'GroupsController@update');
 
+Route::get('/students', 'StudentsController@index');
+

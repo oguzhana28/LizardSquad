@@ -37,9 +37,9 @@
     <!-- Logo -->
     <a href="{{ url('/')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>B</b>A</span>
+      <span class="logo-mini"><b>L</b>S</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Backend</b>Admin</span>
+      <span class="logo-lg"><b>Lizard</b>Squad</span>
     </a>
 
     <!-- Header Navbar -->
@@ -54,12 +54,12 @@
           <!-- User Account Menu -->
           <li>
             <a href="">
-              <i class="glyphicon glyphicon-list"></i><span> Appointments</span>
+              <i class="glyphicon glyphicon-list"></i><span> #</span>
             </a>
           </li>
           <li>
             <a href="">
-              <i class="glyphicon glyphicon-user"></i><span> Users</span>
+              <i class="glyphicon glyphicon-user"></i><span> #</span>
             </a>
           </li>
           <!-- Username Menu -->
@@ -89,8 +89,8 @@
           </li>
 
           <li>
-            <a href="">
-              <i class="glyphicon glyphicon-plus"></i><span>Create User</span>
+            <a href="{{ url('/students') }}">
+              <i class="glyphicon glyphicon-menu-hamburger"></i><span>Students</span>
             </a>
           </li>
       </ul>
@@ -111,7 +111,7 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs"></div>
     <!-- Default to the left -->
-  <strong>Copyright &copy; 2017-2018 <a href="https://trello.com/b/6UZFGGXf/code-addicts">Code Addicts</a>.</strong>
+  <strong>Copyright &copy; 2017-2018 <a href="https://trello.com/b/NNOgrrR4/lizard-squad">Lizard Squad</a>.</strong>
 </footer>
 
 <!-- jQuery 3 -->
