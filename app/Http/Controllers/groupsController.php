@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Groups;
 
-use App\groups;
-
-class groupsController extends Controller
+class GroupsController extends Controller
 {
     
 protected $request;
@@ -18,30 +17,30 @@ protected $request;
          $this->request = $request;
     }
     
-        public function index()
+    public function index()
     {
-        $groups = DB::table('groeps')->get();
-        
+        $groups = Groups::get();
             
-        return view('groups', compact('groups'));
+        return view('groups.index', compact('groups'));
     }
     
     public function delete($id)
     {
         
-        $deleted = DB::table('groeps')->where('id' , $id)->delete();
+        $deleted = Groups::where('id' , $id)->delete();
         
         if($deleted){
-             return redirect('/groups');
+             return redirect('GroupsController@index');
         }
     }
     
     public function create()
     {  
-        $groups = DB::table('groeps')->get();
+        $groups = Groups::get();
 
-        return view('create', compact('groups'));
+        return view('groups.create', compact('groups'));
     }
+    
         public function insert()
     {  
     
@@ -50,16 +49,16 @@ protected $request;
             
         $data = array('name'=>$name,'favorite'=>$favorite);
             
-        $inserted = DB::table('groeps')->insert($data);
+        $inserted = Groups::insert($data);
 
         if($inserted){
-            return redirect('/groups');
+            return redirect('GroupsController@index');
         }
     }
     
     public function edit($id)
     {  
-        $groups = DB::table('groeps')->where('id',$id)->first();
+        $groups = Groups::where('id',$id)->first();
         return view('edit',compact('groups'));
     }
     
@@ -69,16 +68,16 @@ protected $request;
         $favorite = $this->request->input('Favorite');
             
             $data = array('name'=>$name,'favorite'=>$favorite);
-            $updated = DB::table('groeps')->where('id',$id)->update($data);
+            $updated = Groups::where('id',$id)->update($data);
             if($updated){
-                return redirect('/groups');
+                return redirect('GroupsController@index');
             }else{
-                return redirect('/groups')->withErrors(['could not update', 'The Message']);;
+                return redirect('GroupsController@index')->withErrors(['could not update', 'The Message']);;
             }
     }
     public function admin()
     {
-        $groups = DB::table('groeps')->get();
+        $groups = Groups::get();
 
         return view('backend', compact('groups'));
     }

@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     Here can you create new groups!<br>
 
-                    <form class="form-inline" action="/groups/insert" method="post">
+                    <form class="form-inline" action="insert" method="post">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <label class="sr-only" for="inlineFormInput">Name</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">

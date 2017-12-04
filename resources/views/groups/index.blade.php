@@ -18,7 +18,7 @@
                                     <th scope="col">Favorite</th>
                                     <th scope="col">edit</th>
                                     <th scope="col">delete</th>
-                                    <th scope="col">create<a href="/groups/create"> +</th>
+                                    <th scope="col">create<a href="groups/create"> +</a></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -27,8 +27,8 @@
                                   <th scope="row">{{ $group->id }}</th>
                                   <td>{{ $group->name }}</td>
                                   <td>{{ $group->favorite }}</td>
-                                  <td><a href="/groups/edit/{{ $group->id }}">edit</td>
-                                  <td><a href="/groups/delete/{{ $group->id }}">delete</td>
+                                  <td><a href="groups/edit/{{ $group->id }}">edit</td>
+                                  <td><a href="groups/delete/{{ $group->id }}">delete</td>
                                 </tr>
                                 @endforeach
                               </tbody>
