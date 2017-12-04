@@ -10,18 +10,17 @@
                 <div class="panel-body">
                     Here can you create new students!<br>
 
-                    <form action="/groups/insert" method="post">
-                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                       
+                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data">
                         <div id="uploadImage">
-                            <input type="file" accept="image/*" id="input"  name="profileImage">
-                            <img name="image" class="profileImage" src="" id="output"></input>
+                        <label>Select image to upload:</label>
+                         <input type="file" name="file" id="file">
+                        <input type="hidden" value="{{ csrf_token() }}" name="_token">
                         </div>
                        <div class="form-group">
                         <label for="exampleInputEmail1">firstname</label>
                         <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" placeholder="Enter firstname" name="firstname">
                       </div>
-                      
+
                     <div class="form-group">
                         <label for="exampleInputEmail1">prefix</label>
                         <input type="text" class="form-control" id="firstname" aria-describedby="prefixHelp" placeholder="Enter prefix" name="prefix">
