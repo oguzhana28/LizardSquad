@@ -30,7 +30,7 @@ protected $request;
         $deleted = Groups::where('id' , $id)->delete();
         
         if($deleted){
-             return redirect('GroupsController@index');
+             return redirect('groups');
         }
     }
     
@@ -52,14 +52,14 @@ protected $request;
         $inserted = Groups::insert($data);
 
         if($inserted){
-            return redirect('GroupsController@index');
+            return redirect('groups');
         }
     }
     
     public function edit($id)
     {  
         $groups = Groups::where('id',$id)->first();
-        return view('edit',compact('groups'));
+        return view('groups.edit',compact('groups'));
     }
     
         public function update($id)
@@ -70,9 +70,9 @@ protected $request;
             $data = array('name'=>$name,'favorite'=>$favorite);
             $updated = Groups::where('id',$id)->update($data);
             if($updated){
-                return redirect('GroupsController@index');
+                return redirect('groups');
             }else{
-                return redirect('GroupsController@index')->withErrors(['could not update', 'The Message']);;
+                return redirect('groups')->withErrors(['could not update', 'The Message']);;
             }
     }
     public function admin()
