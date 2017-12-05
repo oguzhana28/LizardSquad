@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ URL::asset('css/ionicons.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/AdminLTE.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/skin-blue.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('css/custom.css')}}">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ URL::asset('css/_all-skins.min.css')}}">

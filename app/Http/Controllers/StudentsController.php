@@ -25,12 +25,23 @@ class StudentsController extends Controller
 
 		if(Input::hasFile('file')){
 			$file = Input::file('file');
-			$filename = $file->getClientOriginalName();
-			$extension = Input::file('file')->getClientOriginalExtension();
-			$unique_name = md5($filename. time());
-			$result = $unique_name . "." . $extension;
+			$result = Student::uploadfile($file);
 			$file->move('uploads', $result);
 		}
+		$firstname = $this->request->input('firstname');
+        $prefix = $this->request->input('prefix');	
+        $lastname = $this->request->input('lastname');	
+        $mobile = $this->request->input('mobile');	
+        $address = $this->request->input('address');	
+        $house_number = $this->request->input('house_number');	
+            
+        $data = array('firstname'=>$firstname,'prefix'=>$prefix,'lastname'=>$lastname,'mobile'=>$mobile,'address'=>$address,'house_number'=>$house_number);
+            
+        $inserted = DB::table('students')->insert($data);
+
+        if($inserted){
+            return redirect('/students');
+        }
 	}
 
 }
