@@ -11,14 +11,14 @@
                             <h4>{{$errors->first()}}</h4>
                         @endif
                            <table class="table">
+                            <a class="btn btn-primary" href="groups/create"><span class="glyphicon glyphicon-plus"></span> Create</a>
                               <thead class="thead-dark">
                                 <tr>
                                   <th scope="col">Id</th>
                                   <th scope="col">Name</th>
                                     <th scope="col">Favorite</th>
-                                    <th scope="col">edit</th>
-                                    <th scope="col">delete</th>
-                                    <th scope="col">create<a href="groups/create"> +</a></th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -27,8 +27,8 @@
                                   <th scope="row">{{ $group->id }}</th>
                                   <td>{{ $group->name }}</td>
                                   <td>{{ $group->favorite }}</td>
-                                  <td><a href="groups/edit/{{ $group->id }}">edit</td>
-                                  <td><a href="groups/delete/{{ $group->id }}">delete</td>
+                                  <td><a href="groups/edit/{{ $group->id }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                  <td><a href="groups/delete/{{ $group->id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
                                 </tr>
                                 @endforeach
                               </tbody>
