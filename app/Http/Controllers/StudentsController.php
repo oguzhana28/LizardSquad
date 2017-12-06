@@ -31,12 +31,13 @@ class StudentsController extends Controller
 		}
 		$firstname = $request->input('firstname');
         $prefix = $request->input('prefix');	
-        $lastname = $request->input('lastname');	
+        $lastname = $request->input('lastname');
+		$image = $result;
         $mobile = $request->input('mobile');	
         $address = $request->input('address');	
         $house_number = $request->input('house_number');	
             
-        $data = array('firstname'=>$firstname,'prefix'=>$prefix,'lastname'=>$lastname,'mobile'=>$mobile,'address'=>$address,'house_number'=>$house_number);
+        $data = array('firstname'=>$firstname,'prefix'=>$prefix,'lastname'=>$lastname,'image'=>$image,'mobile'=>$mobile,'address'=>$address,'house_number'=>$house_number);
             
         $inserted = DB::table('students')->insert($data);
 
