@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Groups</div>
-
+                {!! session('warning') !!}
                 <div class="panel-body">
                     Here can you create new students!<br>
 
