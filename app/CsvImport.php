@@ -30,10 +30,11 @@ class CsvImport extends Model
                 foreach($value as $key2=>$value2 ) {
                     //var_dump($key2 . '=' . $value2);
                     $row[$columns[$key2]]=$value2;
-                }   
+                }
+                
                 $row_parsed[] = $row;
             }
         }
-        return ($columns);
+        return [$columns, $row_parsed];
 }
 }

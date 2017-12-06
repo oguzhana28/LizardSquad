@@ -11,37 +11,48 @@
                 <div class="panel-body">
                     Here can you connect the fields!<br>
                    
-                    <form class="form-inline" action="readCsv" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="selectAndImport" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <table class="table">
                         <thead>
                           <tr>
                             <th>Import veld</th>
+                            <th></th>
                             <th>Database veld</th>
                           </tr>
                         </thead>
                         <tbody> 
                         <td>
-                        @foreach($file_data as $data)
-                        <li>{{ $data }}</li>
+                        @foreach($file_columns as $columns)
+                        <li>{{ $columns }}</li>
                         @endforeach
                         </td>
+                        @for ($i = 0; $i < sizeof($file_data); $i++)
                         <td>
-                        @foreach($file_data as $data)
+                        @foreach($file_data[$i] as $data)
+                           <li>
+                                    {{ $data }}
+                             </li>
+                         @endforeach
+                        </td>
+                        @endfor
+                        <td>
+                        @foreach($file_columns as $columns)
                            <li>
                             <select>
                                    <option value="none">select option</option>
-                                @foreach($file_data as $data) 
-                                    <option value="{{$data}}">{{ $data }}</option>
+                                @foreach($file_columns as $columns) 
+                                    <option value="{{$columns}}">{{ $columns }}</option>
                                 @endforeach
                              </select>
                              </li>
                          @endforeach
-                        </td>
+                        </td> 
                         </tbody>
                       </table>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                    
+                    </div>
                     
                 </div>
             </div>

@@ -30,4 +30,5 @@ Route::post('/upload', 'StudentsController@upload');
 
 Route::get('/csv', 'CsvController@index');
 Route::post('/readCsv', 'CsvController@upload');
+Route::post('/selectAndImport', 'CsvController@selectAndImport');
 
