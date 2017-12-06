@@ -8,7 +8,6 @@
                 <h4>Students
                     <a class="btn btn-primary" style="float:right; float" href="students/create"><span class="glyphicon glyphicon-plus"></span> Create</a>
                 </h4>
-                
             </div>
             <div class="panel-body">
                 @foreach($students as $student)
