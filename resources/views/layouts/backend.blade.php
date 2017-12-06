@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Panel Dentist</title>
+  <title>Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,24 +52,7 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">          
-          <!-- User Account Menu -->
-          <li>
-            <a href="">
-              <i class="glyphicon glyphicon-list"></i><span> #</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="glyphicon glyphicon-user"></i><span> #</span>
-            </a>
-          </li>
           <!-- Username Menu -->
-          <li class="user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="">
-              <span class="hidden-xs"><i class="glyphicon glyphicon-sunglasses"></i></span>
-            </a>
-          </li>
           <li>
             <a href="{{ url('/logout') }}">
               <i class="glyphicon glyphicon-log-out"></i><span> Logout</span>
@@ -91,7 +74,13 @@
 
           <li>
             <a href="{{ url('/students') }}">
-              <i class="glyphicon glyphicon-menu-hamburger"></i><span>Students</span>
+              <i class="glyphicon glyphicon-user"></i><span>Students</span>
+            </a>
+          </li>
+
+          <li>
+            <a>
+              <i class="glyphicon glyphicon-star"></i><span>Favorites</span>
             </a>
           </li>
       </ul>
