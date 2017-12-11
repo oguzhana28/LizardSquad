@@ -84,6 +84,11 @@
               <i class="glyphicon glyphicon-star"></i><span>Favorites</span>
             </a>
           </li>
+            <li>
+            <a href="{{ url('/csv') }}">
+              <i class="glyphicon glyphicon-menu-hamburger"></i><span>csv</span>
+            </a>
+          </li>
       </ul>
     </section>
   </aside>
