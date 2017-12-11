@@ -15,12 +15,18 @@ class StudentsController extends Controller
     public function index()
     {       
     	$students = Student::getStudents();    
-        return view('students', compact('students'));
+        return view('students.index', compact('students'));
     } 
     
     public function create()
     {       
-        return view('createStudents');
+        return view('students.create');
+    }
+
+    public function view($id)
+    {
+        $students = Student::getStudentsById($id);
+        return view('students.view', compact('students'));
     }
 
     public function upload(request $request)
