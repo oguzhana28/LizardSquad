@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
                 @foreach($students as $student)
-                <div class="col-xs-12 col-sm-6 col-md-3"">
+                <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="col-item">
                         <div class="photo">
                             <img src="{{ asset('uploads/' . $student->image) }}" class="img-responsive" />
