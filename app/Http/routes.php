@@ -26,9 +26,9 @@ Route::post('/groups/update/{id}', 'GroupsController@update');
 
 Route::get('/students', 'StudentsController@index');
 Route::get('/students/create', 'StudentsController@create');
+Route::get('/students/view/{id}', 'StudentsController@view');
 Route::post('/upload', 'StudentsController@upload');
 
 Route::get('/csv', 'CsvController@index');
 Route::post('/readCsv', 'CsvController@upload');
 Route::post('/selectAndImport', 'CsvController@selectAndImport');
-

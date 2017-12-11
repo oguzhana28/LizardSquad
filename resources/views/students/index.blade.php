@@ -14,7 +14,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="col-item">
                         <div class="photo">
-                            <img src="{{ asset('uploads/' . $student->image) }}" class="img-responsive" />
+                            <a href="{{ URL::to('students/view/'. $student->id) }}"><img src="{{ asset('uploads/' . $student->image) }}" class="img-responsive"></a>
                         </div>
                            <div class="info">
                             <div class="row">
