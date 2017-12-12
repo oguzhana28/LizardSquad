@@ -19,6 +19,10 @@
                     <td></td>
                 </tr>
                 @foreach($students as $student)
+                <div class="col-item">
+                <div class="photo">
+                <img src="{{ asset('uploads/' . $student->image) }}" class="img-responsive">
+                </div>
                 <tr>
                     <td>{{ $student->firstname }}</td>
                     <td>{{ $student->prefix }}</td>

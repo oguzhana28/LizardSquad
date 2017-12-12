@@ -10,9 +10,13 @@
                 <div class="panel-body">
 
                     <form action="/students/update/{{ $students->id }}" method="post" enctype="multipart/form-data">
+                    
+                    <div class="col-item">
                         <div class="photo">
                             <img src="{{ asset('uploads/' . $students->image) }}" class="img-responsive" />
-                            <input type="hidden" name="image" value="{{ asset('uploads/' . $students->image) }}">
+                            </div>
+
+                            <input type="hidden" name="oldimage" value="{{ asset('uploads/' . $students->image) }}">
                         </div>
                         <div id="uploadImage">
                         <label>Select image to upload:</label>

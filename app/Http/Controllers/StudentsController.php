@@ -29,7 +29,7 @@ class StudentsController extends Controller
         return view('students.view', compact('students'));
     }
 
-    public function upload(request $request, $id)
+    public function upload(request $request)
     {
         if (Input::has('firstname','lastname','address','house_number') == true && Input::hasFile('file')) {
             $file = Input::file('file');
