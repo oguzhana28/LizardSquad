@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+use Illuminate\Http\Request;
 
 
 Route::auth();
@@ -21,13 +21,17 @@ Route::get('/groups/create', 'GroupsController@create');
 Route::get('/groups/delete/{id}', 'GroupsController@delete');
 Route::get('/groups/edit/{id}', 'GroupsController@edit');
 Route::get('/', 'GroupsController@admin');
-Route::post('/groups/insert', 'GroupsController@insert');
+Route::post('/groups/inse8rt', 'GroupsController@insert');
 Route::post('/groups/update/{id}', 'GroupsController@update');
 
 Route::get('/students', 'StudentsController@index');
 Route::get('/students/create', 'StudentsController@create');
 Route::get('/students/view/{id}', 'StudentsController@view');
 Route::post('/upload', 'StudentsController@upload');
+Route::get('students/edit/{id}', 'StudentsController@edit');
+Route::post('/students/update/{id}', 'StudentsController@update');
+
+Route::get('/students/delete/{id}', 'StudentsController@delete');
 
 Route::get('/csv', 'CsvController@index');
 Route::post('/readCsv', 'CsvController@upload');
