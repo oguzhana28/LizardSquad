@@ -25,12 +25,22 @@ class CsvController extends Controller
         $file_data = CsvImport::openAndReadfile($file, $result);
         $file_columns = $file_data[0];
         $file_data = $file_data[1];
+        $insertFileData = CsvImport::insertFileData($file_data);
         if(!empty($file_data)){
             return view('csv/fields')->with("file_columns", $file_columns)->with("file_data", $file_data);
         }
     }
     
     public function selectAndImport(){
-            return view('csv/selectAndImport');
+        $select = $this->request->except('_token');
+        $result = CsvImport::insertselect($select);
+        $readData = CsvImport::readData();
+            return view('csv/selectAndImport')->with('readData',$readData);
+    }
+    public function insertIntoDB(){
+        $selected = $this->request->except('_token');
+        $result = CsvImport::insertIntoDB($selected);
+        dd($result);
+
     }
 }
