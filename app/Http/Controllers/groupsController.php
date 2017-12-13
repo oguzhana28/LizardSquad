@@ -23,6 +23,12 @@ protected $request;
             
         return view('groups.index', compact('groups'));
     }
+
+    public function view($id)
+    {
+        $groups = Groups::getGroupsById($id);
+        return view('groups.view', compact('groups'));
+    }
     
     public function delete($id)
     {
