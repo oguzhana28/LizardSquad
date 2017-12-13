@@ -8,6 +8,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Student;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class StudentsController extends Controller
 {
@@ -34,7 +36,6 @@ class StudentsController extends Controller
         if (Input::has('firstname','lastname','address','house_number') == true && Input::hasFile('file')) {
             $file = Input::file('file');
             $result = Student::uploadfile($file);
-            $file->move('uploads', $result);
             $image = $result;
 
             $firstname = $request->input('firstname');
@@ -77,8 +78,18 @@ class StudentsController extends Controller
         $address = $request->input('address');
         $house_number = $request->input('house_number');
         $favorite = $request->input('favorite');
+        $oldimage = $request->input('oldimage');
             
             $data = array('firstname'=>$firstname,'prefix'=>$prefix,'lastname'=>$lastname,'mobile'=>$mobile,'address'=>$address,'house_number'=>$house_number,'favorite'=>$favorite);
+
+        if (Input::hasFile('file')):
+            $file = Input::file('file');
+            $result = Student::uploadfile($file);
+            $image = $result;
+            $image_array = array('image'=>$image);
+            $result_delete_image = Student::deleteImageForStudent($id);
+            $data = array_merge($data, $image_array);
+        endif;
             $updated = Student::where('id',$id)->update($data);
             if($updated){
                 return redirect('students');
@@ -88,10 +99,9 @@ class StudentsController extends Controller
     }
 
     public function delete($id){
-        $deleted = Student::where('id' , $id)->delete();
-        
-        if($deleted){
-             return redirect('students');
-        }
+        $errors = Student::deleteStudent($id);
+        return redirect('students')->withErrors($errors);
     }
+
+
 }
