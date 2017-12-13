@@ -1,3 +1,8 @@
+<?php 
+    use App\Groups;
+    $groups = Groups::get();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,10 +72,17 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-          <li>
-            <a href="{{ url('/groups') }}">
-              <i class="glyphicon glyphicon-menu-hamburger"></i><span>Groups</span>
+
+          <li class="treeview">
+            <a>
+              <i class="glyphicon glyphicon-menu-hamburger"></i><span>Groups</span><i class="fa fa-angle-left pull-right"></i>
             </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ url('/groups') }}"><strong>Show all Groups</strong></a></li>
+              @foreach($groups as $group)
+              <li><a href="{{ URL::to('groups/view/'. $group->id) }}">{{ $group->name }}</a></li>
+              @endforeach
+            </ul>
           </li>
 
           <li>
@@ -79,14 +91,19 @@
             </a>
           </li>
 
-          <li>
+          <li class="treeview">
             <a>
-              <i class="glyphicon glyphicon-star"></i><span>Favorites</span>
+              <i class="glyphicon glyphicon-star"></i><span>Favorites</span><i class="fa fa-angle-left pull-right"></i>
             </a>
+            <ul class="treeview-menu">
+              <li><a href="#">Link in level 2</a></li>
+              <li><a href="#">Link in level 2</a></li>
+            </ul>
           </li>
-            <li>
+
+          <li>
             <a href="{{ url('/csv') }}">
-              <i class="glyphicon glyphicon-menu-hamburger"></i><span>csv</span>
+              <i class="glyphicon glyphicon-menu-hamburger"></i><span>CSV</span>
             </a>
           </li>
       </ul>
