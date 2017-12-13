@@ -36,7 +36,6 @@ class StudentsController extends Controller
         if (Input::has('firstname','lastname','address','house_number') == true && Input::hasFile('file')) {
             $file = Input::file('file');
             $result = Student::uploadfile($file);
-            $file->move('uploads', $result);
             $image = $result;
 
             $firstname = $request->input('firstname');
@@ -79,8 +78,18 @@ class StudentsController extends Controller
         $address = $request->input('address');
         $house_number = $request->input('house_number');
         $favorite = $request->input('favorite');
+        $oldimage = $request->input('oldimage');
             
             $data = array('firstname'=>$firstname,'prefix'=>$prefix,'lastname'=>$lastname,'mobile'=>$mobile,'address'=>$address,'house_number'=>$house_number,'favorite'=>$favorite);
+
+        if (Input::hasFile('file')):
+            $file = Input::file('file');
+            $result = Student::uploadfile($file);
+            $image = $result;
+            $image_array = array('image'=>$image);
+            $result_delete_image = Student::deleteImageForStudent($id);
+            $data = array_merge($data, $image_array);
+        endif;
             $updated = Student::where('id',$id)->update($data);
             if($updated){
                 return redirect('students');

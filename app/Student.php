@@ -24,6 +24,7 @@ class Student extends Model
 		$extension = Input::file('file')->getClientOriginalExtension();
 		$unique_name = md5($filename. time());
 		$result = $unique_name . "." . $extension;
+		$file->move('uploads', $result);
 		return $result;
 	}
 
