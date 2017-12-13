@@ -36,3 +36,4 @@ Route::get('/students/delete/{id}', 'StudentsController@delete');
 Route::get('/csv', 'CsvController@index');
 Route::post('/readCsv', 'CsvController@upload');
 Route::post('/selectAndImport', 'CsvController@selectAndImport');
+Route::post('/insertIntoDB', 'CsvController@insertIntoDB');

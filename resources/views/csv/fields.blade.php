@@ -23,30 +23,28 @@
                         </thead>
                         <tbody> 
                         <td>
-                        @foreach($file_columns as $columns)
+                        @foreach($file_columns as $key => $columns)
                         <li>{{ $columns }}</li>
                         @endforeach
                         </td>
-                        @for ($i = 0; $i < sizeof($file_data); $i++)
                         <td>
-                        @foreach($file_data[$i] as $data)
+                        @foreach($file_data[0] as $data)
                            <li>
                                     {{ $data }}
                              </li>
                          @endforeach
                         </td>
-                        @endfor
                         <td>
-                        @foreach($file_columns as $columns)
+                        @for ($i=0;$i< count($file_columns); $i++)
                            <li>
-                            <select>
+                            <select name="<?php echo $i; ?>">
                                    <option value="none">select option</option>
                                 @foreach($file_columns as $columns) 
-                                    <option value="{{$columns}}">{{ $columns }}</option>
+                                    <option name="collumns" value="{{$columns}}">{{ $columns }}</option>
                                 @endforeach
                              </select>
+                              @endfor
                              </li>
-                         @endforeach
                         </td> 
                         </tbody>
                       </table>

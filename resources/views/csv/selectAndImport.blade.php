@@ -9,24 +9,40 @@
                 <div class="panel-heading">CSV Import</div>
 
                 <div class="panel-body">
-                    Here can you insert a CSV!<br>
+                    Here can you choose what you want to insert!<br>
 
-                    <form class="form-inline" action="readCsv" method="post" enctype="multipart/form-data">
+                    <form class="form-inline" action="insertIntoDB" method="post" enctype="multipart/form-data">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <table class="table">
                         <thead>
                           <tr>
                             <th><input type="checkbox"></th>
-                            <th>Student</th>
-                            <th>student</th>
+                            <th>firstname</th>
+                            <th>prefix</th>
+                            <th>lastname</th>
+                            <th>mobile</th>
+                            <th>address</th>
+                            <th>house_number</th>
                           </tr>
                         </thead>
                         <tbody> 
-                        <td>#</td>
-                        <td>#</td>
-                        <td>#</td>
+                        
+                        @for($i=0;$i < count($readData); $i++)
+                               <tr>
+                                <td><input type="checkbox"  id="{{ $readData[$i]['id'] }}" name="{{ $readData[$i]['id'] }}"></td>
+                                <td>{{ $readData[$i]['firstname'] }}</td>
+                                  <td>{{ $readData[$i]['prefix'] }}</td>
+                                  <td>{{ $readData[$i]['lastname'] }}</td>
+                                  <td>{{ $readData[$i]['mobile'] }}</td>
+                                  <td>{{ $readData[$i]['address'] }} </td>
+                                  <td>{{ $readData[$i]['house_number'] }}</td>
+                        </tr>
+                                  
+                        
+                         @endfor
                         </tbody>
                       </table>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     
                 </div>
