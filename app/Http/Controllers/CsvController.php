@@ -39,8 +39,11 @@ class CsvController extends Controller
     }
     public function insertIntoDB(){
         $selected = $this->request->except('_token');
-        $result = CsvImport::insertIntoDB($selected);
-        dd($result);
+        $result = CsvImport::selectFromDB($selected);
+        $imported = CsvImport::importToDB($result);
+        if($imported){
+             return view('csv/index');
+        }
 
     }
 }

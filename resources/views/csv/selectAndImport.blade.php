@@ -23,6 +23,7 @@
                             <th>mobile</th>
                             <th>address</th>
                             <th>house_number</th>
+                            <th>action</th>
                           </tr>
                         </thead>
                         <tbody> 
@@ -36,6 +37,7 @@
                                   <td>{{ $readData[$i]['mobile'] }}</td>
                                   <td>{{ $readData[$i]['address'] }} </td>
                                   <td>{{ $readData[$i]['house_number'] }}</td>
+                                  <td>{{ $readData[$i]['action'] }}</td>
                         </tr>
                                   
                         

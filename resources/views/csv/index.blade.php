@@ -17,6 +17,16 @@
                       <input type="file" id="file" class="custom-file-input" name="csv">
                       <span class="custom-file-control"></span>
                     </label>
+                    <div class="form-group">
+                        <label for="seperator">seperator</label>
+                            <select name="seperator">
+                                   <option value="none">select option</option>
+                                    <option name="comma" value=" ',' ">comma</option>
+                                    <option name="tab" value='"\t"'>tab</option>
+                                    <option name="punt komma" value="';'">punt komma</option>
+                                    <option name="space" value='"|"'>space</option>
+                             </select>
+                      </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
                       <br>
                     </form>

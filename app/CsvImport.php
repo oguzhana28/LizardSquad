@@ -23,7 +23,7 @@ class CsvImport extends Model
         $columns=fgetcsv($file);    // get column names from first row, like 'id,firstname,prefix,lastname,lastname,image,mobile,address,house_number,favorite'
         foreach($columns as $key=>$collumn){
             $data_coll= array('col_nr'=>$key,'col_name'=>$collumn);
-            $inserted = DB::table('import_collumns')->insert($data_coll);
+             $inserted = DB::table('import_collumns')->insert($data_coll);
         }
         while(!feof($file)){            // keep getting rows until file is finished
             $rowData[]=fgetcsv($file);
@@ -81,16 +81,26 @@ class CsvImport extends Model
         }
         return $row_parsed;    
 	}
-    public static function insertIntoDB($selectedRow){
-        foreach($selectedRow as $key => $sel){
-           $result = DB::table('import_rows')->where('id','=',$key)->get();
-            var_dump($selectedRow);
-            var_dump($key);
-            var_dump($sel);
-            var_dump($result);
-            //return $result;
+    public static function selectFromDB($selectedRows){
+        foreach($selectedRows as $key => $sel){
+           $result[] = DB::table('import_rows')->where('id','=',$key)->get()[0];
+        }  
+        return $result;
+    }    
+    public static function importToDB($res){
+        foreach($res as $key=>$value) {
+            $array[] = get_object_vars($value);
         }
-        die();
-         
+        foreach($array as $key=>$arr){
+            $inserted = DB::table('students')->insert([
+                'firstname' => $arr['firstname'], 
+                'lastname' => $arr['lastname'],
+                'image' => $arr['image'],
+                'mobile' => $arr['mobile'],
+                'address' => $arr['address'],
+                'house_number' => $arr['house_number'],
+                'action' => $arr['action']]);
+        }
+        return $inserted;
     }
 }
