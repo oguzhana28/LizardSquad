@@ -1,4 +1,4 @@
 id,firstname,prefix,lastname,image,mobile,address,house_number,action
-1,oguzhan,,arslan,,0642206648,4306KP,6,null
-2,Tippe,,roosmalen,,06324534,5432LP,6,null
-3,Lars,,Luiendijk,,06323632,6327LP,6,null
+1,oguzhan,,arslan,default.png,0642206648,4306KP,6,null
+2,Tippe,,roosmalen,default.png,06324534,5432LP,6,null
+3,Lars,,Luiendijk,default.png,06323632,6327LP,6,null
