@@ -8,6 +8,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Student;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class StudentsController extends Controller
 {
@@ -88,10 +90,9 @@ class StudentsController extends Controller
     }
 
     public function delete($id){
-        $deleted = Student::where('id' , $id)->delete();
-        
-        if($deleted){
-             return redirect('students');
-        }
+        $errors = Student::deleteStudent($id);
+        return redirect('students')->withErrors($errors);
     }
+
+
 }

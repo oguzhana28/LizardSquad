@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
 
 class Student extends Model
 {
@@ -25,5 +26,37 @@ class Student extends Model
 		$result = $unique_name . "." . $extension;
 		return $result;
 	}
+
+	public static function deleteStudent($id){
+        $errors = [];
+
+        // delete image file
+        $deleteImageResult = Student::deleteImageForStudent($id);
+        if(isset($deleteImageResult) && count($deleteImageResult) > 0) {
+        	array_merge($errors, $deleteImageResult);
+        }
+
+        // delete record
+        $row_deleted = Student::where('id' , $id)->delete();
+        if(!$row_deleted) {
+            $errors[] = "Could not delete record: " . $id;
+        }
+        
+        return $errors;
+    }
+
+    // returns empty array if all went well, or array with messages if something went wrong
+    public static function deleteImageForStudent($id) {
+        $errors = [];
+        $rows = Student::where('id' , $id)->get(['image'])->pluck('image');
+        if (isset($rows[0])){
+            $filename = $rows[0];
+            $result = File::delete( base_path('/public/uploads/'). $filename);
+            if( $result != 1 ) {
+                $errors[] = "Could not delete file: " . $filename;
+            }
+        } 
+        return $errors;
+    }
 	
 }
