@@ -80,7 +80,7 @@
             <ul class="treeview-menu">
               <li><a href="{{ url('/groups') }}"><strong>Show all Groups</strong></a></li>
               @foreach($groups as $group)
-              <li><a href="{{ URL::to('groups/view/'. $group->id) }}">{{ $group->name }}</a></li>
+              <li><a href="{{ url('/groups/view/'. $group->id) }}">{{ $group->name }}</a></li>
               @endforeach
             </ul>
           </li>

@@ -50,7 +50,7 @@ class Student extends Model
     public static function deleteImageForStudent($id) {
         $errors = [];
         $rows = Student::where('id' , $id)->get(['image'])->pluck('image');
-        if (isset($rows[0])){
+        if (isset($rows[0]) && $rows[0] != "default.png"){
             $filename = $rows[0];
             $result = File::delete( base_path('/public/uploads/'). $filename);
             if( $result != 1 ) {
