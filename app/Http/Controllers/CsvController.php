@@ -21,8 +21,9 @@ class CsvController extends Controller
     public function upload(){
         
     $file = $this->request->file('csv');
-        $result = CsvImport::uploadfile($file);
-        $file_data = CsvImport::openAndReadfile($file, $result);
+    $seperator = $this->request->input('seperator');
+        $result = CsvImport::uploadfile($file,$seperator);
+        $file_data = CsvImport::openAndReadfile($file,$seperator);
         $file_columns = $file_data[0];
         $file_data = $file_data[1];
         $insertFileData = CsvImport::insertFileData($file_data);

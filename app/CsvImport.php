@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Input;
 
 class CsvImport extends Model
 {
-    public static function uploadfile($file){
+    public static function uploadfile($file,$s){
           //Move Uploaded File
       $destinationPath = 'uploads';
       $file->move($destinationPath,$file->getClientOriginalName());
       $file_name =  $file->getClientOriginalName();
-        $data = array('csv'=>$file_name,'type'=>'students');
+        $data = array('csv'=>$file_name,'type'=>'students','seperator'=>$s);
         $inserted = DB::table('import')->insert($data);
 	}  
-    public static function openAndReadfile($file){
+    public static function openAndReadfile($file,$s){
          $file_n = base_path('/public/uploads/'.$file->getClientOriginalName());
          $file = fopen($file_n, "r");
         
-        $columns=fgetcsv($file);    // get column names from first row, like 'id,firstname,prefix,lastname,lastname,image,mobile,address,house_number,favorite'
+        $columns= fgetcsv($file , 0, $s );    // get column names from first row, like 'id,firstname,prefix,lastname,lastname,image,mobile,address,house_number,favorite'
         foreach($columns as $key=>$collumn){
             $data_coll= array('col_nr'=>$key,'col_name'=>$collumn);
              $inserted = DB::table('import_collumns')->insert($data_coll);

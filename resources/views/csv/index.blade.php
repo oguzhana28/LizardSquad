@@ -21,10 +21,10 @@
                         <label for="seperator">seperator</label>
                             <select name="seperator">
                                    <option value="none">select option</option>
-                                    <option name="comma" value=" ',' ">comma</option>
-                                    <option name="tab" value='"\t"'>tab</option>
-                                    <option name="punt komma" value="';'">punt komma</option>
-                                    <option name="space" value='"|"'>space</option>
+                                    <option name="comma" value=",">comma</option>
+                                    <option name="tab" value='\t'>tab</option>
+                                    <option name="punt komma" value=";">punt komma</option>
+                                    <option name="space" value='|'>space</option>
                              </select>
                       </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
