@@ -87,4 +87,11 @@ protected $request;
 
         return view('backend', compact('groups'));
     }
+
+    public function view_students()
+    {
+        $students = Groups::getGroupsById();
+        //var_dump($students);
+        return view('groups.index', compact('groups'));
+    }
 }

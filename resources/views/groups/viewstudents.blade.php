@@ -18,8 +18,8 @@
                 <tr>
                     <td>{{ $group->name }}</td>
                     <td>{{ $group->favorite }}</td>
-                    <td><a href="{{ URL::to('groups/edit/'. $group->id) }}"><span class="glyphicon glyphicon-pencil"></span></td></a>
-                    <td><a href="{{ URL::to('groups/delete/'. $group->id) }}"><span class="glyphicon glyphicon-trash"></span></td></a>
+                    <td><a href="{{ URL::to('group/edit/'. $group->id) }}"><span class="glyphicon glyphicon-pencil"></span></td></a>
+                    <td><a href="{{ URL::to('group/delete/'. $group->id) }}"><span class="glyphicon glyphicon-trash"></span></td></a>
                 </tr>
                 @endforeach
             </table>
